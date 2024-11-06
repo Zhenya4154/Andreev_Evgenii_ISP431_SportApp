@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="User1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="GenderName">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_GenderName" FromRole="GenderName" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="RoleName">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_RoleName" FromRole="RoleName" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TypeInsert">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_TypeInsert" FromRole="TypeInsert" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdRole" Type="Int32" Nullable="false" />
+    <Property Name="NameUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumberPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SeriaPass" Type="Int32" Nullable="false" />
+    <Property Name="NumberPass" Type="Int32" Nullable="false" />
+    <Property Name="BirthdayDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LastInvite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdTypeInsert" Type="Int32" />
+    <Property Name="IdGender" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GenderName" Relationship="Self.FK_Users_GenderName" FromRole="Users" ToRole="GenderName" />
+    <NavigationProperty Name="RoleName" Relationship="Self.FK_Users_RoleName" FromRole="Users" ToRole="RoleName" />
+    <NavigationProperty Name="TypeInsert" Relationship="Self.FK_Users_TypeInsert" FromRole="Users" ToRole="TypeInsert" />
+  </EntityType>
+  <Association Name="FK_Users_GenderName">
+    <End Role="GenderName" Type="Self.GenderName" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenderName">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdGender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_RoleName">
+    <End Role="RoleName" Type="Self.RoleName" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleName">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_TypeInsert">
+    <End Role="TypeInsert" Type="Self.TypeInsert" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeInsert">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdTypeInsert" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="User1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GenderName" EntityType="Self.GenderName" />
+    <EntitySet Name="RoleName" EntityType="Self.RoleName" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TypeInsert" EntityType="Self.TypeInsert" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_Users_GenderName" Association="Self.FK_Users_GenderName">
+      <End Role="GenderName" EntitySet="GenderName" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_RoleName" Association="Self.FK_Users_RoleName">
+      <End Role="RoleName" EntitySet="RoleName" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_TypeInsert" Association="Self.FK_Users_TypeInsert">
+      <End Role="TypeInsert" EntitySet="TypeInsert" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

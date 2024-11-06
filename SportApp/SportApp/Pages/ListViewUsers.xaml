@@ -1,0 +1,43 @@
+﻿<Page x:Class="SportApp.Pages.ListViewUsers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SportApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListViewUsers">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="1"
+                  x:Name="UsersListView"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  Margin="10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="{Binding NameUser, StringFormat={}ФИО: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding Email, StringFormat={}Почта: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding BirthdayDate, StringFormat={}Дата рождения: {0:yyyy-MM-dd}}"></TextBlock>
+                        </StackPanel>
+                        <TextBlock Grid.Column="1" Text="{Binding RoleName.Role, StringFormat={}Должность: {0}}"></TextBlock>
+                        <Button Grid.Column="2" Content="Редактировать" Click="EditButton_Click" x:Name="EditButton"></Button>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Grid.Row="2" Content="Добавить" x:Name="AddEditbutton" Click="AddEditbutton_Click"></Button>
+    </Grid>
+</Page>
