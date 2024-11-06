@@ -29,12 +29,12 @@ namespace SportApp.Pages
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            Classes.Manager.MainFrame.Navigate(new Pages.AddEditPage());
+            Classes.Manager.MainFrame.Navigate(new Pages.AddEditPage((sender as Button).DataContext as Data.Users));
         }
 
         private void AddEditbutton_Click(object sender, RoutedEventArgs e)
         {
-            Classes.Manager.MainFrame.Navigate(new Pages.AddEditPage());
+            Classes.Manager.MainFrame.Navigate(new Pages.AddEditPage(null));
         }
     }
 }

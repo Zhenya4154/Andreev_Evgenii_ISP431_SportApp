@@ -16,16 +16,6 @@
     <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Users" Relationship="Self.FK_Users_RoleName" FromRole="RoleName" ToRole="Users" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="TypeInsert">
     <Key>
       <PropertyRef Name="Id" />
@@ -94,7 +84,6 @@
   <EntityContainer Name="User1Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="GenderName" EntityType="Self.GenderName" />
     <EntitySet Name="RoleName" EntityType="Self.RoleName" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="TypeInsert" EntityType="Self.TypeInsert" />
     <EntitySet Name="Users" EntityType="Self.Users" />
     <AssociationSet Name="FK_Users_GenderName" Association="Self.FK_Users_GenderName">

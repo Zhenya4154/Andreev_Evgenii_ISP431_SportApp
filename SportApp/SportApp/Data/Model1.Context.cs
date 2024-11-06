@@ -20,14 +20,15 @@ namespace SportApp.Data
             : base("name=User1Entities")
         {
         }
-         public static User1Entities GetContext()
+        public static User1Entities GetContext()
         {
-            if(_context == null)
+            if (_context == null)
             {
                 _context = new User1Entities();
             }
             return _context;
         }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -35,7 +36,6 @@ namespace SportApp.Data
     
         public virtual DbSet<GenderName> GenderName { get; set; }
         public virtual DbSet<RoleName> RoleName { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeInsert> TypeInsert { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }

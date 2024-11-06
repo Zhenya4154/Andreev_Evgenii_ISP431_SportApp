@@ -15,26 +15,43 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Content="ФИО:" ></Label>
-            <TextBox x:Name="UserNameTextBox"></TextBox>
+            <TextBox x:Name="UserNameTextBox" HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"></TextBox>
             <Label Content="Должность:" ></Label>
-            <ComboBox x:Name="RoleComboBox"></ComboBox>
+            <ComboBox x:Name="RoleComboBox" DisplayMemberPath="Role"
+                      HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"></ComboBox>
             <Label Content="Дата рождения:" ></Label>
-            <DatePicker x:Name="BitrhdayDatePicker"></DatePicker>
+            <DatePicker x:Name="BitrhdayDatePicker"
+                        HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"></DatePicker>
             <Label Content="Номер телефона:"></Label>
-            <TextBox x:Name="NumberPhoneTextBox"></TextBox>
+            <TextBox x:Name="NumberPhoneTextBox"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"></TextBox>
             <Label Content="Пол:"></Label>
-            <ComboBox x:Name="GenderComboBox"></ComboBox>
+            <ComboBox x:Name="GenderComboBox" DisplayMemberPath="Gender"
+                      HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"></ComboBox>
         </StackPanel>
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Content="Почта:"></Label>
-            <TextBox x:Name="EmailTextBox"></TextBox>
+            <TextBox x:Name="EmailTextBox"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"></TextBox>
             <Label Content="Логин:"></Label>
-            <TextBox x:Name="LoginTextBox"></TextBox>
+            <TextBox x:Name="LoginTextBox"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"></TextBox>
             <Label Content="Пароль:"></Label>
-            <TextBox x:Name="PasswordTextBox"></TextBox>
+            <TextBox x:Name="PasswordTextBox"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"></TextBox>
             <Label Content="Подтверждение пароля:"></Label>
-            <TextBox x:Name="ConfirmPasswordTextBox"></TextBox>
-            <Button x:Name="AddButton" Click="AddButton_Click" Content="Добавить" Margin="10"></Button>
+            <TextBox x:Name="ConfirmPasswordTextBox"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"></TextBox>
+            <Button x:Name="AddButton" Click="AddButton_Click" Content="Подтвердить" Margin="10"></Button>
             <Button x:Name="BackButton" Click="BackButton_Click" Content="Назад" ></Button>
         </StackPanel>
     </Grid>

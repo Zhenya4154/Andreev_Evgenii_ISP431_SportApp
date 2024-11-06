@@ -14,16 +14,6 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="TypeInsert">
     <Key>
       <PropertyRef Name="Id" />
@@ -88,7 +78,6 @@
   <EntityContainer Name="Хранилище User1ModelContainer">
     <EntitySet Name="GenderName" EntityType="Self.GenderName" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RoleName" EntityType="Self.RoleName" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeInsert" EntityType="Self.TypeInsert" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Users_GenderName" Association="Self.FK_Users_GenderName">
