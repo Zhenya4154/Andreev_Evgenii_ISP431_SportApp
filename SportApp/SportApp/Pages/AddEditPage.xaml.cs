@@ -29,7 +29,7 @@ namespace SportApp.Pages
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Логики нету!", "Уведомление!", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
